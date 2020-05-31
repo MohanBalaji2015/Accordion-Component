@@ -1,0 +1,115 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "Oswald-Bold";
+  src: url("./assets/oswald-bold.ttf");
+}
+@font-face {
+  font-family: "Oswald-Light";
+  src: url("./assets/oswald-light.ttf");
+}
+@font-face {
+  font-family: "Oswald-Regular";
+  src: url("./assets/oswald-regular.ttf");
+}
+
+body {
+  background-color: #eee;
+}
+
+.layout {
+	display: flex;
+	flex-direction: column;
+	justify-items: center;
+}
+
+.wrapper {
+	width: 100%;
+    max-width: 708px;
+    margin: 0 auto;
+}
+
+h1 {
+	margin: 20px 0;
+	display: flex;
+	font-family: 'Oswald-Bold';
+}
+
+.faqs {
+  width: 100%;
+  border-top: 20px solid black;
+  padding-top: 10px solid black;
+}
+
+.faqs .faq {
+  margin: 15px 0;
+  padding: 15px 0;
+  border-bottom: 4px solid black;
+
+}
+
+.faqs .faq .faq-question {
+  position: relative;
+  padding-right: 80px;
+  transition: all 0.4s ease;
+  display: flex;
+  align-items: center;
+  padding: 0 15px;
+  height: 60px;
+}
+
+.faqs .faq .faq-question .faq-text {
+  font-size: 15px;
+  font-family: "Oswald-Regular";
+}
+
+.faqs .faq .faq-question .faq-number {
+  font-size: 25px;
+  margin-right: 20px;
+  font-family: "Oswald-Bold";
+}
+
+.faqs .faq .faq-question::after {
+  content: "";
+  position: absolute;
+  top: -11%;
+  right: 0px;
+  width: 90px;
+  height: 80px;
+  padding: 4px;
+
+  background-image: url("./images/arrow-plus.svg");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  transition: all 0.4s ease-out;
+}
+
+.faqs .faq .faq-answer {
+  padding: 0 15px;
+  opacity: 0;
+  max-height: 0;
+  overflow-y: hidden;
+  transition: all 0.4s ease-out;
+  font-family: "Oswald-Regular";
+}
+
+.faqs .faq.open .faq-question {
+  margin-bottom: 15px;
+  background-color: grey;
+}
+
+.faqs .faq.open .faq-question::after {
+  transform: translateY(-11%) rotate(180deg) translateX(4px);
+  background-image: url("./images/arrow-cross.svg");
+  height: 65px;
+}
+
+.faqs .faq.open .faq-answer {
+  max-height: 1000px;
+  opacity: 1;
+}
